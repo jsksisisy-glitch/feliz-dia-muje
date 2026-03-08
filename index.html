@@ -13,33 +13,27 @@ display:flex;
 justify-content:center;
 align-items:center;
 font-family:Arial;
-
-/* fondo aesthetic */
-background-image:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+overflow:hidden;
+background-image:url("https://images.unsplash.com/photo-1511988617509-a57c8a288659");
 background-size:cover;
 background-position:center;
 }
 
-/* tarjeta */
 .tarjeta{
-background:rgba(255,255,255,0.85);
+background:rgba(255,255,255,0.9);
 padding:30px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,0.3);
+box-shadow:0 0 25px rgba(0,0,0,0.4);
 animation:aparecer 2s;
+z-index:2;
 }
 
 h1{
 color:#d81b60;
-font-size:36px;
+font-size:34px;
 }
 
-p{
-font-size:20px;
-}
-
-/* tulipanes animados */
 .tulipanes{
 width:200px;
 animation:flotar 3s infinite ease-in-out;
@@ -56,22 +50,78 @@ from{opacity:0;transform:scale(0.8);}
 to{opacity:1;transform:scale(1);}
 }
 
+.corazon{
+position:absolute;
+font-size:24px;
+animation:subir 6s linear infinite;
+}
+
+@keyframes subir{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+.flor{
+position:absolute;
+font-size:28px;
+animation:caer 8s linear infinite;
+}
+
+@keyframes caer{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="tarjeta">
-
-<h1>🌸 Feliz Día de la Mujer 🌸</h1>
-
+<h1 id="titulo"></h1>
 <p>Para una mujer increíble 💜</p>
-
 <img class="tulipanes" src="https://cdn.pixabay.com/photo/2016/04/15/11/45/tulips-1331440_1280.png">
-
 <p>Unos tulipanes morados para ti 🌷</p>
-
 </div>
+
+<script>
+
+let texto="🌸 Feliz Día de la Mujer 🌸";
+let i=0;
+
+function escribir(){
+if(i < texto.length){
+document.getElementById("titulo").innerHTML += texto.charAt(i);
+i++;
+setTimeout(escribir,80);
+}
+}
+
+escribir();
+
+function crearCorazon(){
+let c=document.createElement("div");
+c.className="corazon";
+c.innerHTML="💜";
+c.style.left=Math.random()*100+"vw";
+document.body.appendChild(c);
+setTimeout(()=>{c.remove();},6000);
+}
+
+setInterval(crearCorazon,600);
+
+function crearFlor(){
+let f=document.createElement("div");
+f.className="flor";
+f.innerHTML="🌷";
+f.style.left=Math.random()*100+"vw";
+document.body.appendChild(f);
+setTimeout(()=>{f.remove();},8000);
+}
+
+setInterval(crearFlor,900);
+
+</script>
 
 </body>
 </html>
