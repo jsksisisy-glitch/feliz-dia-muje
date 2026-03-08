@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial;
+
+/* fondo aesthetic */
+background-image:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+background-size:cover;
+background-position:center;
+}
+
+/* tarjeta */
+.tarjeta{
+background:rgba(255,255,255,0.85);
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+animation:aparecer 2s;
+}
+
+h1{
+color:#d81b60;
+font-size:36px;
+}
+
+p{
+font-size:20px;
+}
+
+/* tulipanes animados */
+.tulipanes{
+width:200px;
+animation:flotar 3s infinite ease-in-out;
+}
+
+@keyframes flotar{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+@keyframes aparecer{
+from{opacity:0;transform:scale(0.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="tarjeta">
+
+<h1>🌸 Feliz Día de la Mujer 🌸</h1>
+
+<p>Para una mujer increíble 💜</p>
+
+<img class="tulipanes" src="https://cdn.pixabay.com/photo/2016/04/15/11/45/tulips-1331440_1280.png">
+
+<p>Unos tulipanes morados para ti 🌷</p>
+
+</div>
+
+</body>
+</html>
